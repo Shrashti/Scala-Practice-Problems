@@ -1,0 +1,17 @@
+Problem Statement :
+
+Given a list like List("stock1",75.6,"stock2",100.26,"stock1",108.34,"stock3",175.8,"stock2",100.26,"stock2",100.26,"stock1",75.6)
+ a) write a function to convert the list as List(("stock1",75.6),("stock2",100.26),("stock1",108.34),("stock3",175.8),...).
+ b) take output of above result as input and find out stocks which are up with same price more than once.
+ c) find out stock which are up with same price maximum number of times.
+ d) In case if stock is up with different prices than calculate the average price of that stock
+
+
+Solutions :
+
+a) def pairedList(list : List[Any])= list.grouped(2).toList
+
+b) val stockWithSamePrices=pairedList(list).groupBy(l=>l).mapValues(_.length).filter((t)=>t._2 > 1)
+
+c) val maxTimeStockWithSamePrices=pairedList(list).groupBy(l=>l).mapValues(_.length).maxBy(_._2)._1
+
