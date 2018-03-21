@@ -15,3 +15,12 @@ b) val stockWithSamePrices=pairedList(list).groupBy(l=>l).mapValues(_.length).fi
 
 c) val maxTimeStockWithSamePrices=pairedList(list).groupBy(l=>l).mapValues(_.length).maxBy(_._2)._1
 
+
+Problem Statement :
+Write a function to convert a given string "String" into format like "83:116:114:105:110:103", where 'S'.toInt 
+will return 83.
+
+Solution:
+
+def toNumString(str : String):String=str.toArray.map(x => x.toInt).mkString(":")
+
